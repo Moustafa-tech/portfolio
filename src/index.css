@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-body antialiased transition-colors duration-300;
+  }
+
+  html.light body {
+    @apply bg-slate-50 text-slate-800;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  section[id] {
+    scroll-margin-top: 76px;
+  }
+
+  ::selection {
+    background: rgba(62, 139, 255, 0.35);
+  }
+
+  /* Visible, accessible focus states everywhere */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #3E8BFF;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .section-eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-accent;
+  }
+
+  .section-title {
+    @apply mt-3 text-3xl sm:text-4xl font-semibold text-ink tracking-tight;
+  }
+
+  html.light .section-title {
+    @apply text-slate-900;
+  }
+
+  .card {
+    @apply rounded-2xl border border-surface-border bg-surface shadow-card;
+  }
+
+  html.light .card {
+    @apply border-slate-200 bg-white shadow-sm;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium
+           transition-all duration-200 focus-visible:outline-none disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-deep hover:shadow-glow;
+  }
+
+  .btn-secondary {
+    @apply btn border border-surface-border bg-surface-raised text-ink hover:border-accent/60 hover:text-accent-soft;
+  }
+
+  html.light .btn-secondary {
+    @apply border-slate-300 bg-white text-slate-700 hover:border-accent hover:text-accent-deep;
+  }
+
+  .btn-ghost {
+    @apply btn text-ink-muted hover:text-ink;
+  }
+
+  .kpi-chip {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-surface-border bg-canvas-soft
+           px-2.5 py-1 font-mono text-xs text-ink-muted;
+  }
+
+  html.light .kpi-chip {
+    @apply border-slate-200 bg-slate-50 text-slate-600;
+  }
+
+  .tag-pill {
+    @apply rounded-full border border-surface-border px-3 py-1 text-xs font-medium text-ink-muted transition-colors;
+  }
+
+  html.light .tag-pill {
+    @apply border-slate-300 text-slate-600;
+  }
+
+  .tag-pill[data-active='true'] {
+    @apply border-accent bg-accent/10 text-accent-soft;
+  }
+
+  html.light .tag-pill[data-active='true'] {
+    @apply border-accent bg-accent/10 text-accent-deep;
+  }
+}
+
+@layer utilities {
+  /* Faint dashboard-grid backdrop used behind the Hero — the site's signature motif */
+  .bg-dashboard-grid {
+    background-image:
+      linear-gradient(rgba(62, 139, 255, 0.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(62, 139, 255, 0.09) 1px, transparent 1px);
+    background-size: 42px 42px;
+    -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 25%, black 40%, transparent 85%);
+    mask-image: radial-gradient(ellipse 65% 55% at 50% 25%, black 40%, transparent 85%);
+  }
+
+  html.light .bg-dashboard-grid {
+    background-image:
+      linear-gradient(rgba(62, 139, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(62, 139, 255, 0.12) 1px, transparent 1px);
+  }
+}
