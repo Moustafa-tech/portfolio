@@ -8,7 +8,7 @@
 import { withBase } from '../utils/paths'
 
 export const personal = {
-  fullName: 'Mostafa Yehia Rageb',
+  fullName: 'Mostafa Yehia Ragab',
   title: 'Junior Data Analyst',
   headline: 'Junior Data Analyst | Power BI | SQL | Excel | Python',
   location: 'Egypt',
