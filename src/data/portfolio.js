@@ -33,7 +33,7 @@ export const personal = {
   // no phone number was supplied, and one was not invented.
   whatsappNumber: '',
 
-  cvPath: withBase('Mostafa_Yehia_Rageb_CV.pdf'),
+  cvPath: withBase('Mostafa_Yehia_Ragab_CV.pdf'),
   profileImage: withBase('images/profile/profile.jpeg'),
 }
 
